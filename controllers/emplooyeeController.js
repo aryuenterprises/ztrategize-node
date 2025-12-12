@@ -2299,7 +2299,7 @@ const payroll = async (req, res) => {
           payroll_conveyanceAllowance = 0,
           payroll_eeesi_percent = 0,
           payroll_eresi_percent = 0,
-        } = payrollPercentValue;
+        } = payrollPercentValue || {};
 
         // Convert percentages to decimal
         payroll_basic_percent = Number(payroll_basic_percent) / 100;
