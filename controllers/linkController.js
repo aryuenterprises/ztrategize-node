@@ -126,9 +126,9 @@ const getLinkByCategory = async (req, res) => {
       }
     ]);
 
-    if (!linksByCategory.length) {
-      return res.status(404).json({ success: false, message: "No link details found" });
-    }
+    // if (!linksByCategory.length) {
+    //   return res.status(404).json({ success: false, message: "No link details found" });
+    // }
 
     res.status(200).json({ success: true, data: linksByCategory });
   } catch (error) {
