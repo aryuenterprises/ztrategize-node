@@ -102,6 +102,7 @@ const markAttendance = async (req, res) => {
     }
 
     if (attendance) {
+      attendance.workType = workType;
       attendance.entries.push(entry);
       if (comments) attendance.comments.push(comments);
       await attendance.save();

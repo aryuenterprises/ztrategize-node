@@ -20,6 +20,7 @@ import {
   deleteConnectsPurchased,
   getAccountWise,
   getBidderByMultipleIds,
+  getAllBidder
   // filterBidder,
 } from "../controllers/bidderController.js";
 const router = express.Router();
@@ -55,5 +56,8 @@ router.delete("/delete-connect-purchased/:id", deleteConnectsPurchased);
 router.get("/get-account-bidder-wise", getAccountWise);
 router.get("/get-account-bidder-multiple-id", getBidderByMultipleIds);
 // router.get("/filter-bidder", filterBidder);
+
+//get all bidder
+router.get("/get-all-bidder", getAllBidder);
 
 export default router;

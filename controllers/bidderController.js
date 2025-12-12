@@ -4,6 +4,23 @@ import TechnologyBidder from "../models/technologyBidderModel.js";
 import bidderEmployeeModelSchema from "../models/bidderEmployeeModel.js";
 import ConnectsPurchased from "../models/connectsPurchasedModel.js";
 import { isModuleNamespaceObject } from "util/types";
+import Employee from "../models/employeeModel.js";
+import EmployeeRole from "../models/employeeRoleModel.js";
+
+const getAllBidder = async(req, res) => {
+  const account = await Bidder.find();
+  const technology = await TechnologyBidder.find();
+  const bidderRole = await EmployeeRole.find({_id:"68c7edede2681e9879afdbd3"});
+  const bidder = await Employee.find({roleId:bidderRole[0]._id}).populate("roleId").select("employeeId employeeName ");
+   res.status(200).json({
+    success: true,
+    data: {
+      account,
+      technology,
+      bidder,
+    },
+  })
+}
 const createAccountBidder = async (req, res) => {
   try {
     const { name, status } = req.body;
@@ -58,7 +75,7 @@ const editAccountBidder = async (req, res) => {
       runValidators: true,
     });
 
-    if (!updatedBidder) {
+    if (!updated) {
       return res
         .status(404)
         .json({ success: false, error: "Bidder not found" });
@@ -742,5 +759,6 @@ export {
   deleteConnectsPurchased,
   getAccountWise,
   getBidderByMultipleIds,
+  getAllBidder
   // filterBidder,
 };

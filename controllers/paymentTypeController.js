@@ -32,7 +32,7 @@ const getFilter= async(req, res) => {
 
 const getPaymentType = async (req, res) => {
   try {
-    const payments = await PaymentType.find({}).populate("project_name", "gst gst_amount name").lean();
+    const payments = await PaymentType.find({}).populate("project_name", "gst gst_amount name budget").lean();
     const clients = await ClientDetails.find({}, "client_name").lean();
     // const project = await ProjectModel.find({clients: project_name}).select("gst gst_amount ").lean();
 
