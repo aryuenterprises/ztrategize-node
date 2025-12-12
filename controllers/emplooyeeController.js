@@ -515,7 +515,7 @@ const changePassword = async (req, res) => {
     // user.password = newPassword; // hashing handled by pre("save")
     // await user.save();
 
-    return res.status(200).json({ message: "Password changed successfully" });
+    return res.status(200).json({ success: true, message: "Password changed successfully" });
   } catch (error) {
     if (error.name === "ValidationError") {
       const errors = {};
