@@ -141,7 +141,7 @@ const getSocialMediaCredential = async (req, res) => {
   if (!passwordSetting) {
     return res
       .status(404)
-      .json({ success: false, message: "Settings not found" });
+      .json({ success: false, message: "Password not found" });
   }
 
   const isMatch = await bcrypt.compare(password, passwordSetting.password);

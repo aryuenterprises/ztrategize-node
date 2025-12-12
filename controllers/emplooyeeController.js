@@ -375,7 +375,7 @@ const createEmployee = async (req, res) => {
     // console.log(newEmp);
     const user = await Employee.findOne({ email: req.body.email });
     // console.log("user ", user);
-    if (user) {
+    if (!user.employeeStatus === "0") {
       return res
         .status(404)
         .json({ success: false, errors: { email: "Email allready exists" } });
