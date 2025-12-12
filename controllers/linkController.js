@@ -93,9 +93,9 @@ const editLinkDetails = async (req, res) => {
 
 const getTitleFromCategory = async (req, res) => {
     const getTitle = await CategoryDetails.find({status: '1'}).select('title');
-    if (!getTitle || getTitle.length === 0) {
-        return res.status(404).json({ success: false, message: "No titles found" });
-    }
+    // if (!getTitle || getTitle.length === 0) {
+    //     return res.status(404).json({ success: false, message: "No titles found" });
+    // }
     res.status(200).json({ success: true, data: getTitle });
 }
 
