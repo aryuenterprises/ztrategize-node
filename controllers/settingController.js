@@ -58,6 +58,7 @@ const createSetting = async (req, res) => {
       });
     } else {
       // Create new settings
+      
       settings = new Settings({
         gst_percent,
         payroll_basic_percent,
@@ -66,9 +67,9 @@ const createSetting = async (req, res) => {
         payroll_medicalAllowance,
         payroll_eepf_percent,
         payroll_erpf_percent,
-        password,
+        // password,
         unhappy_leave,
-        sick_leave,
+        // sick_leave,
         casual_leave,
         complementary_leave,
         wfh_leave,
@@ -78,6 +79,9 @@ const createSetting = async (req, res) => {
         date_format,
         unhappy_leave_option
       });
+       if (password) {
+        settings.password = password;
+      }
 
       await settings.save();
 
